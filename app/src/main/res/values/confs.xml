@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="googleFeedsApiUrl">https://newsapi.org</string>
+    <string name="googleFeedsApiKey">bec7a8d1885948a28ba3105996e3afe9</string>
+    <string name="instagramFeedsApiUrl">https://rss.app</string>
+</resources>

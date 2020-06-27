@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="feed"
+            type="org.technical.android.entity.database.Feed" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lyt_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_feed"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:imageCenterCrop="@{feed.imageUrl}"
+                app:layout_constraintBottom_toTopOf="@id/txt_title"
+                app:layout_constraintDimensionRatio="16:9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:roundCorners="@{5}" />
+
+            <TextView
+                android:id="@+id/txt_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@{feed.title}"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/txt_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_feed"
+                tools:text="This is a dummy title" />
+
+            <TextView
+                android:id="@+id/txt_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:padding="8dp"
+                android:text="@{feed.description}"
+                android:visibility="@{feed.description == null ? View.GONE : View.VISIBLE , default = gone }"
+                app:layout_constraintBottom_toTopOf="@id/img_fav"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_title"
+                tools:text="This is a dummy summery"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/txt_author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:singleLine="true"
+                android:text="@{feed.author}"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@id/txt_published_date"
+                app:layout_constraintEnd_toStartOf="@id/img_fav"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_description"
+                tools:text="Google Inc." />
+
+            <TextView
+                android:id="@+id/txt_published_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:singleLine="true"
+                android:text="@{feed.publishedDate}"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/img_fav"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_author"
+                tools:text="2018-01-01" />
+
+            <ImageView
+                android:id="@+id/img_fav"
+                style="?attr/actionButtonStyle"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_description"
+                app:imageResource="@{feed.favoriteStatus ? @drawable/ic_baseline_favorite_24 : @drawable/ic_baseline_favorite_border_24 }"
+                tools:srcCompat="@drawable/ic_baseline_favorite_border_24" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

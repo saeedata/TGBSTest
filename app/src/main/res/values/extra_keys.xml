@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="extra_fragment_feed_list_source">_EXTRA.SOURCE</string>
+    <string name="extra_fragment_feed_list_source_google">GOOGLE</string>
+    <string name="extra_fragment_feed_list_source_instagram">INSTAGRAM</string>
+    <string name="extra_fragment_feed_list_source_database">DATABASE</string>
+
+    <string name="extra_fragment_feed_details_feed">_EXTRA.FEED</string>
+
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ProgressiveButton">
+        <attr name="pb_fontFamily" format="reference" />
+        <attr name="pb_leftDrawable" format="reference" />
+        <attr name="pb_rightDrawable" format="reference" />
+        <attr name="pb_topDrawable" format="reference" />
+        <attr name="pb_bottomDrawable" format="reference" />
+        <attr name="pb_drawableSize" format="integer" />
+        <attr name="pb_text" format="string" />
+        <attr name="pb_textSize" format="dimension" />
+        <attr name="pb_textColor" format="color" />
+        <attr name="pb_hideMode">
+            <enum name="text" value="0" />
+            <enum name="button" value="1" />
+        </attr>
+        <attr name="pb_style">
+            <enum name="normal" value="0" />
+            <enum name="unElevated" value="1" />
+        </attr>
+        <attr name="pb_rippleColor" format="color" />
+        <attr name="pb_indicatorColor" format="color" />
+        <attr name="pb_backgroundColor" format="color" />
+        <attr name="pb_cornerRadius" format="dimension" />
+        <attr name="pb_textAllCaps" format="boolean" />
+    </declare-styleable>
+
+</resources>

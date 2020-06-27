@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_favorites"
+    app:startDestination="@id/favorite_feeds">
+
+    <fragment
+        android:id="@+id/favorite_feeds"
+        android:name="org.technical.android.ui.fragment.feedList.FragmentFeedList"
+        android:label="Favorites"
+        tools:layout="@layout/fragment_feed_list">
+
+        <action
+            android:id="@+id/action_feed_list_to_feed_details"
+            app:destination="@id/feed_details"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+
+        <argument
+            android:name="_EXTRA.SOURCE"
+            android:defaultValue="DATABASE"
+            app:argType="string" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/feed_details"
+        android:name="org.technical.android.ui.fragment.feedDetails.FragmentFeedDetails"
+        android:label="FragmentFeedDetails"
+        tools:layout="@layout/fragment_feed_details_web_view">
+
+        <argument
+            android:name="_EXTRA.FEED"
+            app:argType="org.technical.android.entity.database.Feed"
+            app:nullable="true" />
+
+    </fragment>
+
+</navigation>
